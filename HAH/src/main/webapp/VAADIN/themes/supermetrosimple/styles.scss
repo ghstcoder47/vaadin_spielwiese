@@ -1,0 +1,11 @@
+@import "supermetro.scss";
+@import "contexthelp/contexthelp.scss";
+
+.supermetrosimple {
+	@include supermetro;	
+	
+}
+
+body {
+	@include supermetro-contexthelp;
+}

@@ -1,0 +1,488 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>HAH</groupId>
+	<artifactId>HAH</artifactId>
+	<version>0.70.0</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- vaadin.version>7.3.8</vaadin.version -->
+		<vaadin.version>7.3.8</vaadin.version>
+		<org.vaadin.addons.filteringtable.version>0.9.13.v7</org.vaadin.addons.filteringtable.version>
+		<com.vaadin.tapio.googlemaps.version>1.0.0</com.vaadin.tapio.googlemaps.version>
+		<com.google.maps.google-maps-services.version>0.1.5</com.google.maps.google-maps-services.version>
+		<org.scala-saddle.google-rfc-2445.version>20110304</org.scala-saddle.google-rfc-2445.version>
+		<org.vaadin.addons.stepper.version>2.2.1</org.vaadin.addons.stepper.version>
+		<com.google.collections.google-collections.version>1.0</com.google.collections.google-collections.version>
+		<org.apache.pdfbox.pdfbox.version>2.0.2</org.apache.pdfbox.pdfbox.version>
+		<com.github.dhorions.boxable.version>1.5-RC</com.github.dhorions.boxable.version>
+		<org.vaadin.addon.tableexport-for-vaadin.version>1.5.1.5</org.vaadin.addon.tableexport-for-vaadin.version>
+		<org.vaadin.addons.tokenfield.version>7.0.1</org.vaadin.addons.tokenfield.version>
+		<org.quartz-scheduler.quartz.version>2.2.3</org.quartz-scheduler.quartz.version>
+		<ch.qos.logback.logback-classic.version>1.1.7</ch.qos.logback.logback-classic.version>
+		<!--org.jtwig.jtwig-core.version>5.55</org.jtwig.jtwig-core.version-->
+		<org.jtwig.jtwig-core.version>5.55</org.jtwig.jtwig-core.version>
+		<org.jsoup.jsoup.version>1.11.1</org.jsoup.jsoup.version>
+		<org.mariadb.jdbc.mariadb-java-client.version>1.7.0</org.mariadb.jdbc.mariadb-java-client.version>
+		<vaadin.plugin.version>3.6.0</vaadin.plugin.version>
+	</properties>
+
+	<repositories>
+		<repository> 
+			<id>bintray_maven</id> 
+			<name>Bintray Maven repository</name> 
+			<url>https://dl.bintray.com/jtwig/maven</url> 
+		</repository>
+		<repository>
+			<id>vaadin_add_on</id>
+			<name>Vaadin Add-on repository</name>
+			<url>http://maven.vaadin.com/vaadin-addons</url>
+		</repository>
+		
+		
+		<repository> <id>vaadin_snapshots</id> <name>Vaadin snapshots repository</name> 
+			<url>https://oss.sonatype.org/content/repositories/vaadin-snapshots</url> 
+			</repository>
+	</repositories>
+
+	<dependencies>
+	
+		<!-- The core server part of Vaadin -->
+		<!--dependency org="com.vaadin" name="vaadin-server" rev="&vaadin.version;" 
+			conf="default->default" / -->
+		<!--dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-server</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency-->
+		
+		<!--dependency org="com.vaadin.tapio" name="googlemaps" rev="1.0.0" / -->
+		<dependency>
+			<groupId>com.vaadin.tapio</groupId>
+			<artifactId>googlemaps</artifactId>
+			<version>${com.vaadin.tapio.googlemaps.version}</version>
+		</dependency>
+		
+		<!-- dependency org="com.vaadin" name="vaadin-push" rev="&vaadin.version;" 
+			conf="default->default" / -->
+		<!-- ### -->
+		<!--dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-push</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency-->
+		
+		<!-- Vaadin client side, needed for widget set compilation -->
+		<!--dependency org="com.vaadin" name="vaadin-client" rev="&vaadin.version;" 
+			/ -->
+		<!--dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency-->
+
+		<!-- Compiler for custom widget sets. Should not be deployed -->
+		<!--dependency org="com.vaadin" name="vaadin-client-compiler" rev="&vaadin.version;" 
+			conf="widgetset-compile->default" / -->
+		<!--dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client-compiler</artifactId>
+			<version>${vaadin.version}</version>
+			<scope>compile</scope>
+		</dependency-->		
+		
+		<!-- Vaadin themes -->
+		<!--dependency org="com.vaadin" name="vaadin-themes" rev="&vaadin.version;" 
+			/ -->
+		<!--dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-themes</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency-->
+		
+		<!-- Precompiled DefaultWidgetSet -->
+		<!-- dependency org="com.vaadin" name="vaadin-client-compiled" rev="&vaadin.version;" 
+			/ -->
+		<!--dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client-compiled</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency-->
+		<!-- ### -->
+		<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-server</artifactId>
+				<version>${vaadin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-push</artifactId>
+				<version>${vaadin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-client</artifactId>
+				<version>${vaadin.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-client-compiler</artifactId>
+				<version>${vaadin.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-themes</artifactId>
+				<version>${vaadin.version}</version>
+			</dependency>
+		
+		<!-- filteringtable -->
+		<!-- dependency org="org.vaadin.addons" name="filteringtable" rev="0.9.13.v7" 
+			/ -->
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>filteringtable</artifactId>
+			<version>${org.vaadin.addons.filteringtable.version}</version>
+		</dependency>
+		
+		<!--dependency org="com.google.maps" name="google-maps-services" rev="0.1.5" 
+			/ -->
+		<dependency>
+			<groupId>com.google.maps</groupId>
+			<artifactId>google-maps-services</artifactId>
+			<version>${com.google.maps.google-maps-services.version}</version>
+		</dependency>
+		
+		<!--dependency org="org.scala-saddle" name="google-rfc-2445" rev="20110304"/ -->
+		<dependency>
+			<groupId>org.scala-saddle</groupId>
+			<artifactId>google-rfc-2445</artifactId>
+			<version>${org.scala-saddle.google-rfc-2445.version}</version>
+		</dependency>
+		
+		<!--dependency org="org.vaadin.addons" name="stepper" rev="2.2.1" / -->
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>stepper</artifactId>
+			<version>${org.vaadin.addons.stepper.version}</version>
+		</dependency>
+		
+		<!-- utils -->
+		<!--dependency org="com.google.collections" name="google-collections" rev="1.0"/ -->
+		<dependency>
+			<groupId>com.google.collections</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>${com.google.collections.google-collections.version}</version>
+		</dependency>
+		
+		<!-- PDF fill -->
+		<!--dependency org="org.apache.pdfbox" name="pdfbox" rev="2.0.2"/ -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${org.apache.pdfbox.pdfbox.version}</version>
+		</dependency>
+		
+		<!--dependency org="com.github.dhorions" name="boxable" rev="1.5-RC"/ -->
+		<dependency>
+			<groupId>com.github.dhorions</groupId>
+			<artifactId>boxable</artifactId>
+			<version>${com.github.dhorions.boxable.version}</version>
+		</dependency>
+		
+		<!-- Table Exporter -->
+		<!--dependency org="org.vaadin.addon" name="tableexport-for-vaadin" rev="1.5.1.5" 
+			/ -->
+		<dependency>
+			<groupId>org.vaadin.addon</groupId>
+			<artifactId>tableexport-for-vaadin</artifactId>
+			<version>${org.vaadin.addon.tableexport-for-vaadin.version}</version>
+		</dependency>
+		
+		<!-- TokenField (tags) -->
+		<!--dependency org="org.vaadin.addons" name="tokenfield" rev="7.0.1" / -->
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>tokenfield</artifactId>
+			<version>${org.vaadin.addons.tokenfield.version}</version>
+		</dependency>
+		
+		<!-- Quartz scheduler -->
+		<!--dependency org="org.quartz-scheduler" name="quartz" rev="2.2.3"/ -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${org.quartz-scheduler.quartz.version}</version>
+		</dependency>
+		
+		<!-- logger -->
+		<!--dependency org="ch.qos.logback" name="logback-classic" rev="1.1.7"/ -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${ch.qos.logback.logback-classic.version}</version>
+		</dependency>
+		
+		####
+		<!-- https://mvnrepository.com/artifact/org.slf4j/jul-to-slf4j -->
+		<!-- <dependency org="org.slf4j" name="jul-to-slf4j" rev="1.7.12"/> -->
+		
+		<!-- templating -->
+		<!--dependency org='org.jtwig' name='jtwig-core' rev='5.55'/ -->
+		<dependency>
+			<groupId>org.jtwig</groupId>
+			<artifactId>jtwig-core</artifactId>
+			<version>${org.jtwig.jtwig-core.version}</version>
+			<!--scope>runtime</scope-->
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<!--dependency org="org.jsoup" name="jsoup" rev="1.11.1"/ -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>${org.jsoup.jsoup.version}</version>
+		</dependency>
+		
+		<!-- mariadb driver -->
+		<!--dependency org="org.mariadb.jdbc" name="mariadb-java-client" rev="1.7.0"/ -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>${org.mariadb.jdbc.mariadb-java-client.version}</version>
+		</dependency>
+		<!-- exclude these to avoid javax.mail issues (referecened by com.vaadin.tapio 
+			googlemaps) -->
+		<!--exclude org="*" module="appengine"/ -->
+		<!--exclude org="*" module="appengine-api-1.0-sdk"/ -->
+		<!--exclude org="*" module="slf4j-simple"/ -->
+		<!--exclude org="*" module="slf4j"/ -->
+		
+		<!-- diese dependencie wird über github verteilt. resource wurde manuel 
+			local angelegt. sollte über nexus verteilt oder drauf verzichtet werden -->
+		<dependency>
+			<groupId>com.github.wolfie.refresher.RefresherWidgetset</groupId>
+			<artifactId>refresher-1.2.1.7</artifactId>
+			<version>1.2.1.7</version>
+		</dependency>
+		
+		<!-- manuel gepflegte dependencies -->
+				
+		<dependency>
+			<groupId>de.steinwedel.vaadin.addon</groupId>
+			<artifactId>messagebox</artifactId>
+			<version>2.0.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.vaadin.jonatan</groupId>
+			<artifactId>contexthelp</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>vaadin-sqlcontainer</artifactId>
+			<version>1.1.0</version>
+		</dependency>		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.abstractmeta</groupId>
+			<artifactId>compilation-toolbox</artifactId>
+			<version>0.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>csvalidation</artifactId>
+			<version>0.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin.addon</groupId>
+			<artifactId>beanvalidation-addon</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.3.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin.addon</groupId>
+			<artifactId>vaadin-charts</artifactId>
+			<version>1.0.1</version>
+		</dependency>		
+		
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>50.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>1.3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcmail-jdk15on</artifactId>
+			<version>1.54</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.54</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>1.54</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>2.7.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>commons-compiler</artifactId>
+			<version>2.7.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jms_1.1_spec</artifactId>
+			<version>1.0</version>
+		</dependency>			
+		<dependency>
+			<groupId>com.github.dblock.waffle</groupId>
+			<artifactId>waffle-jna</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+		
+		
+	</dependencies>
+
+	<build>
+		
+		<finalName>HAH</finalName>
+		<plugins>
+			
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<!-- warSourceDirectory>WebContent</warSourceDirectory -->
+					<webResources>
+						<webResource>
+							<directory>${basedir}/src/main/webapp</directory>
+							<includes>
+								<include>*.xml</include>
+							</includes>
+							<targetPath>WEB-INF</targetPath>
+							<filtering>true</filtering>
+						</webResource>
+					</webResources>
+				</configuration>
+			</plugin>
+			<plugin>
+			  <groupId>com.vaadin</groupId>
+			  <artifactId>vaadin-maven-plugin</artifactId>
+			  <version>${vaadin.plugin.version}</version>
+
+			  <configuration>
+				<extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+				<webappDirectory>${basedir}src/main/webapp/VAADIN</webappDirectory>
+				<draftCompile>false</draftCompile>
+				<compileReport>false</compileReport>
+				<style>OBF</style>
+				<strict>true</strict>
+			  </configuration>
+
+			  <executions>
+				<execution>
+				  <goals>
+					<goal>update-theme</goal>
+					<goal>update-widgetset</goal>
+					<goal>compile</goal>
+					<goal>compile-theme</goal>
+				  </goals>
+				</execution>
+			  </executions>
+			  <dependencies>
+			  <dependency>
+					<groupId>org.apache.maven</groupId>
+					<artifactId>maven-plugin-api</artifactId>
+					<version>3.6.0</version>
+				</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

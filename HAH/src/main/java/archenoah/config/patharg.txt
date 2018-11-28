@@ -1,0 +1,1 @@
+-Dlogback.configurationFile=C:/Users/<...>/.hah/logback.xml

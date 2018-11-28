@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE  mapsConfig [
+
+    <!ELEMENT mapsConfig  (entry*)>
+    <!ELEMENT entry (value*)>
+    <!ELEMENT value (#PCDATA)>
+    
+    <!ATTLIST entry id CDATA #IMPLIED>
+    <!ATTLIST entry use CDATA #IMPLIED>
+    <!ATTLIST value id CDATA #IMPLIED>
+
+]>
+
+<mapsConfig>
+    <entry id="ApiKey" use="true">
+      <value id="apiKey">AIzaSyCBSTSSjPp483ls6G_WCybo0R1VCVWE4u8</value>
+    </entry>
+    <entry id="ConnectTimeout" use="false">
+        <value id="timeout"></value>
+        <value id="unit"></value>
+    </entry>
+    <entry id="EnterpriseCredentials" use="false">
+        <value id="clientId"></value>
+        <value id="cryptographicSecret"></value>
+    </entry>
+    <entry id="QueryRateLimit" use="false">
+        <value id="maxQps"></value>
+        <value id="minimumInterval"></value>
+    </entry>
+    <entry id="ReadTimeout" use="false">
+        <value id="timeout"></value>
+        <value id="unit"></value>
+    </entry>
+    <entry id="RetryTimeout" use="false">
+        <value id="timeout"></value>
+        <value id="unit"></value>
+    </entry>
+    <entry id="WriteTimeout" use="false">
+        <value id="timeout"></value>
+        <value id="unit"></value>
+    </entry>
+</mapsConfig>
+

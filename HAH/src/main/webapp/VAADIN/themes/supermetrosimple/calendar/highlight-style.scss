@@ -1,0 +1,38 @@
+@mixin highlight-style($style: style, $darken : false, $color: #ffffff, $text: #000000, $intensity : 20%) {
+    
+    .v-calendar .v-calendar-event-#{$style}-all-day{
+        
+        color: $text;
+        background-color: $color;
+        
+        @if $darken{
+			background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, darken($color, $intensity) 10px, darken($color, $intensity) 20px);
+		}@else{
+			background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, lighten($color, $intensity) 10px, lighten($color, $intensity) 20px);
+		}
+        
+        
+    }
+    
+    .v-calendar .v-calendar-event-#{$style}.v-calendar-event-start,
+    .v-calendar .v-calendar-event-#{$style}-all-day.v-calendar-event-start {
+        -webkit-border-top-left-radius: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        -moz-border-radius-topleft: 0px;
+        -moz-border-radius-bottomleft: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        margin-left: 0;
+    }
+    
+    .v-calendar .v-calendar-event-#{$style}.v-calendar-event-end,
+    .v-calendar .v-calendar-event-#{$style}-all-day.v-calendar-event-end{
+        -webkit-border-top-right-radius: 0px;
+        -webkit-border-bottom-right-radius: 0px;
+        -moz-border-radius-topright: 0px;
+        -moz-border-radius-bottomright: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+}

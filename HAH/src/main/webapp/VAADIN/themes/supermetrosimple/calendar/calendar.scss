@@ -1,0 +1,42 @@
+@import "event-style.scss";	
+@import "highlight-style.scss";        
+
+@mixin supermetro-calendar($name : v-calendar) {
+	
+	@include event-style(empty, #00bb00, true);
+	@include event-style(nurse_edit, #106acf);
+	@include event-style(order_placed, #ae15dd);
+	@include event-style(order_prepared, #e19d14);
+	@include event-style(nurse_sent, #00bb00);
+	@include event-style(full, #489CFA);
+	@include event-style(warning, #ed3719);
+	@include event-style(unaccepted, #ed3719, true);
+	
+	/*@include highlight-style(date-type_no_orders, true, #FF2929, #FFF, 30%);*/
+	@include highlight-style(date-type_no_orders, false, #FFDA36, #000, 30%);
+	
+	
+	.v-calendar-no-arrows .v-calendar-next,
+	.v-calendar-no-arrows .v-calendar-back{
+		display:none
+	}
+	
+	.v-calendar-month-day-today{
+		-webkit-box-shadow: inset 0px 0px 0px 2px rgba(16,106,207,1);
+		-moz-box-shadow: inset 0px 0px 0px 2px rgba(16,106,207,1);
+		box-shadow: inset 0px 0px 0px 2px rgba(16,106,207,1);
+	}
+	
+	.v-calendar-month-day-selected{
+		background-color: #c6dde9;
+	}
+	
+	.package-legend .legend-entry{
+		
+		margin-bottom: 2px;
+		font-size: 1.2em;
+		height:1.3em;
+		padding:0px 4px 4px 6px;
+	
+	}
+}

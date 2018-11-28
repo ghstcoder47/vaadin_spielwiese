@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Login-Einstellungen>
+  <Allgemeine_Einstellungen>
+    <Slepp>5000</Slepp>
+    <ServiceName>Asan_10</ServiceName>
+  </Allgemeine_Einstellungen>
+  <Datenbank_Einstellungen>
+    <Serveradresse>isconet-applications.de</Serveradresse>
+    <Datenbankname>test</Datenbankname>
+    <Username>Siladrim</Username>
+    <Passswort>cane1986</Passswort>
+    <PORT>3306</PORT>
+  </Datenbank_Einstellungen>
+</Login-Einstellungen>

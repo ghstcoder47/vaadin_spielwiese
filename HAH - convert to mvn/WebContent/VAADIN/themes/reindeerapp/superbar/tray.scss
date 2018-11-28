@@ -1,0 +1,16 @@
+@mixin supermetro-superbar-tray($primaryStyleName : superbar-tray) {
+	
+.#{$primaryStyleName}{
+	position:absolute;
+	right:0px;
+	padding:0;
+	margin:3px 0 0 3px;
+	background:none;
+	/*border-left:1px solid #222;*/
+	}
+
+.#{$primaryStyleName} .v-menubar-menuitem{
+	line-height:10px;
+}
+
+}

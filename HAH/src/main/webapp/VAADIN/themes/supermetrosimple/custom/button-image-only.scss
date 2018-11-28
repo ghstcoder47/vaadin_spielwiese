@@ -1,0 +1,13 @@
+@mixin button-image-only($primaryStyleName : button-image-only) {
+	
+	.v-button-#{$primaryStyleName}{
+		padding:0!important;
+	}
+	
+	.v-button-#{$primaryStyleName} .v-button-wrap{
+		padding-right:0!important;
+	}
+
+
+
+}
