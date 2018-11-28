@@ -1,9 +1,0 @@
-@mixin input-align($primaryStyleName : input-align) {
-	
-	.v-slot-#{$primaryStyleName} .v-caption-on-top{
-		margin-top:-15px;
-	}
-
-
-
-}
